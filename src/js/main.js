@@ -8,7 +8,6 @@
  */
 
 
-;
 (function ($) {
 
 
@@ -69,17 +68,17 @@
         this.$ctrlMain.append('<div class="duration ctrl-btn time-text" >0:00</div>');
         this.$ctrlMain.append('<div class="opt-btn ctrl-btn " ><span class="glyphicon glyphicon-text-color" aria-hidden="true"></div>');
         this.$ctrlMain.append('<input class="danmu-input ctrl-btn"   type="textarea" id="danmu_text" max=300 />'); // -> button あ
-        this.$ctrlMain.append('<div class=" send-btn  ctrl-btn"  >发送 ></div>');
+        this.$ctrlMain.append('<div class=" send-btn  ctrl-btn"  >Send ></div>');
         this.$ctrlMain.append('<div class="full-screen   ctrl-btn-right"><span class=" glyphicon glyphicon-resize-full" aria-hidden="true"></span></div>');
         this.$ctrlMain.append('<div class="loop-btn   ctrl-btn-right"><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span></div>');
         this.$ctrlMain.append('<div class="show-danmu  ctrl-btn-right ctrl-btn-right-active"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>');
         this.$ctrlMain.append('<div class="opacity ctrl-btn-right"><input class="ctrl-btn-right danmu-op" value="100" type="range" /></div>');
         $("body").append('<div id="' + this.id.slice(1, this.id.length) + 'fontTip"  hidden="true">' +
-            '<form  id="danmu-position">弹幕位置：' +
-            '<input type="radio" checked="checked"  name="danmu_position" value=0 />滚动&nbsp;&nbsp;<input type="radio" name="danmu_position" value=1 />顶端' +
-            '&nbsp;&nbsp;<input type="radio" name="danmu_position" value=2 />底端&nbsp;&nbsp;</form>' +
-            '<form  id="danmu-size" >弹幕大小：<input   type="radio" checked="checked"  name="danmu_size" value="1" />大文字&nbsp;&nbsp;' +
-            '<input   type="radio" name="danmu_size" value="0" />小文字&nbsp;&nbsp;</form>' +
+            '<form  id="danmu-position">Comment Position：' +
+            '<input type="radio" checked="checked"  name="danmu_position" value=0 />Roll&nbsp;&nbsp;<input type="radio" name="danmu_position" value=1 />Top' +
+            '&nbsp;&nbsp;<input type="radio" name="danmu_position" value=2 />Bottom&nbsp;&nbsp;</form>' +
+            '<form  id="danmu-size" >Comment Size：<input   type="radio" checked="checked"  name="danmu_size" value="1" />Large Size Text&nbsp;&nbsp;' +
+            '<input   type="radio" name="danmu_size" value="0" />Small Size Text&nbsp;&nbsp;</form>' +
             '<div class="colpicker" ></div></div>');
 
 
@@ -110,19 +109,19 @@
         });
         $(this.id + " .opacity").scojs_tooltip({
             appendTo: this.id,
-            content: '弹幕透明度'
+            content: 'Transparancy'
         });
         $(this.id + " .show-danmu").scojs_tooltip({
             appendTo: this.id,
-            content: '开启/关闭 弹幕'
+            content: 'Display/Hide Comment'
         });
         $(this.id + " .loop-btn").scojs_tooltip({
             appendTo: this.id,
-            content: '循环播放'
+            content: 'Repeat'
         });
         $(this.id + " .full-screen").scojs_tooltip({
             appendTo: this.id,
-            content: '全屏'
+            content: 'Full Sreen'
         });
         $(this.id + ' .colpicker').colpick({
             flat: true,
@@ -160,7 +159,7 @@
                 return;
             }
             if (text.length > 255){
-                alert("弹幕过长！");
+                alert("Comment Over-sized！");
                 return;
             }
             text = text.replace(/&/g, "&gt;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/\n/g, "<br>");
